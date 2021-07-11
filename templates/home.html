@@ -2,5 +2,22 @@
 {% load static %}
 
 {% block content %}
-Currently, classification and segmentation pipleline for 2D data is completed. 
+<h2> Model Supported</h2>
+<h3> Classification</h3>
+<ul>
+	<li>ChexPert is chest radiograph dataset composed of 0.25 million radiographs of 65,000 patients, labelled by 3 radiologists. It can classify 14 diseases. </li>
+	<li>ECG data is collected in Pakistan, and it has 2000 reports of patients. It can diagnose upto 5 disorders</li>
+	<li>Skin dataset composed of 3000 images captured via mobile camera for 6 skin diseases.</li>
+	<li>COVID diagnosis from XRAY</li>
+
+</ul>
+<h3>Segmentation</h3>
+<ul>
+	<li>Fetal head segmentation from ultrasound 2D images.</li>
+</ul>
+
+
+<h2>Supported system</h2>
+<img src="{% static "onnx.png" %}" alt="oxx" style='height: 100%; width: 100%; object-fit: contain'/>
+
 {% endblock %}
