@@ -8,7 +8,6 @@ ort_session = onnxruntime.InferenceSession(path+"ultrasound.onnx")
 from .segmentor import normalize
 
 def opencv_fitEllipse(binary_mask, method="Direct"):
-    print(binary_mask)
     assert binary_mask.min() >= 0.0 and binary_mask.max() <= 1.0
     points = np.argwhere(binary_mask > 0.5)  # TODO: tune threshold
 
