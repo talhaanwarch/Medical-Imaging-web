@@ -5,3 +5,7 @@ h1{
 body{
 	align-content: center;
 }
+
+.tablediv{
+	padding-left: 80px;
+}

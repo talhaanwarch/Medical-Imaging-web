@@ -13,3 +13,8 @@ class UploadModel(models.Model):
 	name=models.CharField(max_length=50)
 	aImodels=models.CharField(max_length=15, choices=MODEL_CHOICES)
 	image=models.ImageField('image')
+
+class HCModel(models.Model):
+    name=models.CharField(max_length=50)
+    scale=models.FloatField(max_length=5)
+    image=models.ImageField('image')

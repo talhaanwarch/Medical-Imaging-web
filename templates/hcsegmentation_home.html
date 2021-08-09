@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+For test data and corresponding scale visit <a href='https://hc18.grand-challenge.org/'> data</a>
+<br><br>
+<form action="" method="post" enctype="multipart/form-data"> 
+    {% csrf_token %}
+    {{ printform.as_p }}
+<input type="submit" value="Submit">
+
+ </form>
+ <br>
+{% if image %}
+<img src="https://grand-challenge-public-prod.s3.amazonaws.com/f/challenge/265/5dce7aa7-d2fe-4f59-a838-45dd267840be/GrandChallangeValues_90xwKFs.png" alt="image" width="225" height="225">
+<img src="data:image/png;base64,{{image}}" width="225" height="225">
+<img src="data:image/png;base64,{{segment}}" width="225" height="225">
+<br>
+<br>
+
+
+<div class="tablediv">
+<h2> Result</h2>
+
+Circumference value is {{ val.circum }}
+<br>
+<table >
+<TR>
+   <TR><TD>center_x_mm: </TD> <TD>{{ val.center_x_mm }}</TD></TR>
+   <TR><TD>center_y_mm: </TD> <TD>{{ val.center_y_mm }}</TD></TR>
+   <TR><TD>semi_axes_a_mm: </TD> <TD>{{ val.semi_axes_a_mm }}</TD></TR>
+   <TR><TD>semi_axes_b_mm: </TD> <TD>{{ val.semi_axes_b_mm }}</TD></TR>
+   <TR><TD>angle_rad: </TD> <TD>{{ val.angle_rad }}</TD></TR>
+</table>
+<div>
+{% endif %}
+<br>
+<br>
+
+
+{% endblock %}

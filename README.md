@@ -45,3 +45,20 @@ def home(request):
 
  </form>
 ```
+## Static file issue  
+Find path where static system is looking for static files.  
+```
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+]
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+```
+then do 
+`python manage.py findstatic --verbosity 2 style.css`
+## SSL
+For ssl, i am using https://github.com/teddziuba/django-sslserver  
+
