@@ -4,7 +4,7 @@ import cv2
 import numpy as np
 #import matplotlib.pyplot as plt
 path='segmentation_app/py_templates/checkpoints/'
-ort_session = onnxruntime.InferenceSession(path+"ultrasoundnew.onnx")
+ort_session = onnxruntime.InferenceSession(path+"ultrasound.onnx")
 from .segmentor import normalize
 
 def opencv_fitEllipse(binary_mask, method="Direct"):
@@ -57,4 +57,8 @@ def predict(img_path):
   img_out_y=img_out_y[0,0,:,:]
   img_out_y=np.where(img_out_y>0.5,1,0)
   img_out_y=cv2.resize(img_out_y.astype('float32'),(image.size))
+  #erosion and dilution
+  kernel = np.ones((5,5), np.uint8)
+  img_out_y = cv2.erode(img_out_y, kernel, iterations=5)
+  img_out_y = cv2.dilate(img_out_y, kernel, iterations=20) 
   return img_out_y,image
